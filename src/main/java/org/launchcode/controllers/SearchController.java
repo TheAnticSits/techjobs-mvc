@@ -29,8 +29,9 @@ public class SearchController {
     public String search(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         model.addAttribute("columns", ListController.columnChoices);
 
-        ArrayList listylist = JobData.findByColumnAndValue(searchType, searchTerm);
-        model.addAllAttributes(listylist);
+        ArrayList jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+
+        model.addAllAttributes(jobs);
 
         return "search";
     }
