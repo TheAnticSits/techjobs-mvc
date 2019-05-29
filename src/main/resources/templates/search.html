@@ -35,15 +35,24 @@
         </p>
 
         <input type="submit" value="Search" />
-    </form>
+
 
     <hr />
 
 
+</form>
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+<form>
+
+    <tr th:each="column: ${listylist}">
+        <td th:text="${column.core competency}" />
+
+    </tr>
+</form>
     // After you have your search handler above passing data to the view, you need to display the data. Open up search.html and create a loop to display each job passed in from the controller.
     // You should put each job in its own table, with one job field per row.
     // Add the CSS class "job-listing" to each of the tables to get some nice styling.
+
 </div>
 
 </body>
