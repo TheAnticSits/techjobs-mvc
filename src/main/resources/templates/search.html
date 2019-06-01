@@ -45,11 +45,13 @@
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 <form>
 
-    <span th:each="job : ${jobs}">
+    <ul th:each="job : ${jobs}">
 <!--        <label th:each="item: ${job}" />-->
 
-        <label th:each="item:${job}" th:text="${item}"></label>
-    </span>
+        <ul th:each="item:${job}" >
+            <li th:text="${item}"></li>
+        </ul>
+    </ul>
 
 </form>
 
