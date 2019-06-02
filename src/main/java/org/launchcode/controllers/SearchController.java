@@ -32,7 +32,7 @@ public class SearchController {
 
 
         model.addAttribute("jobs", JobData.findByColumnAndValue(searchType, searchTerm));
-
+        model.addAttribute("joblength", JobData.findByColumnAndValue(searchType,searchTerm).size());
         return "search";
     }
 
