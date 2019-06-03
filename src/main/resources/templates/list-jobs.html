@@ -12,6 +12,20 @@
 
     <!-- TODO #3 - Use the same list display from search.html -->
     // Recall that the page at the path /list/values?column=all doesn't display any results. This page needs to display full job listings, just like the search results page. In fact, you can reuse the code you just wrote in search.html by defining a new fragment in that file, and then including the fragment in list.jobs.html.
+    <form>
+
+        <table th:each="job : ${jobs}">
+            <!--        <label th:each="item: ${job}" />-->
+
+            <tr th:each="item:${job}" >
+                <td style="font-weight: bold" th:text="${item.key}"></td>
+                <td th:text="${item.value}"></td>
+
+            </tr>
+            <br />
+        </table>
+
+    </form>
 
 </div>
 

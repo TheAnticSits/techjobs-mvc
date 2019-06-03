@@ -29,10 +29,15 @@ public class SearchController {
     public String search(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         model.addAttribute("columns", ListController.columnChoices);
         //HashMap<String, String> jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+        if (searchType.equals("all")){
+            model.addAttribute("jobs", JobData.findAll(searchTerm));
+            return "search";
+        }
+        else {
+            model.addAttribute("jobs", JobData.findByColumnAndValue(searchType, searchTerm));
+        }
 
-
-        model.addAttribute("jobs", JobData.findByColumnAndValue(searchType, searchTerm));
-        model.addAttribute("joblength", JobData.findByColumnAndValue(searchType,searchTerm).size());
+        //model.addAttribute("joblength", JobData.findByColumnAndValue(searchType,searchTerm).size());
         return "search";
     }
 
