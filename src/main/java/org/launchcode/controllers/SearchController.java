@@ -30,15 +30,16 @@ public class SearchController {
         model.addAttribute("columns", ListController.columnChoices);
         //HashMap<String, String> jobs = JobData.findByColumnAndValue(searchType, searchTerm);
         if (searchType.equals("all")){
-            model.addAttribute("jobs", JobData.findAll(searchTerm));
+            model.addAttribute("jobs", JobData.findByValue(searchTerm));
             return "search";
         }
         else {
             model.addAttribute("jobs", JobData.findByColumnAndValue(searchType, searchTerm));
+            return "search";
         }
 
         //model.addAttribute("joblength", JobData.findByColumnAndValue(searchType,searchTerm).size());
-        return "search";
+        //return "search";
     }
 
     // XXXAdd another results handler method to SearchController, overloading the existing method.
